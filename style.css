@@ -14,7 +14,7 @@ body {
 
 h1 {
   text-align: center;
-  margin: 20px;
+  margin: 10px;
 }
 
 .history p {
@@ -60,11 +60,22 @@ label {
   text-transform: uppercase;
 }
 
+.cipherBtn:hover, .decipherBtn:hover {
+  cursor: pointer;
+}
+
 .cipherBtn {
   background-color: #efd74b;
 }
+.cipherBtn:hover {
+  background-color: #fde661;
+}
 
 .decipherBtn {
+  background-color: #80e405;
+}
+
+.decipherBtn:hover {
   background-color: #a4ef4b;
 }
 

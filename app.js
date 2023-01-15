@@ -11,6 +11,7 @@ const cipherBtn = document.querySelector(".cipherBtn");
 const decipherBtn = document.querySelector(".decipherBtn");
 
 inputAlphabet.value = dictionary;
+inputAlphabet.disabled = true;
 inputKey.value = key;
 const cipherAlgorithm = new VigenereCipher(inputKey.value, inputAlphabet.value);
 
