@@ -16,7 +16,6 @@ const cipherAlgorithm = new VigenereCipher(inputKey.value, inputAlphabet.value);
 
 cipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  cipherAlgorithm.setKey(inputKey.value);
   const encryptedMsg = cipherAlgorithm.encode(msgToEncrypt.value);
   if (encryptedMsg !== -1) {
     msgToDecipher.value = encryptedMsg;
@@ -26,18 +25,25 @@ cipherBtn.addEventListener("click", (e) => {
 
 decipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  cipherAlgorithm.setKey(inputKey.value);
   const decipherMsg = cipherAlgorithm.decode(msgToDecipher.value);
-  msgToEncrypt.value = decipherMsg;
-  msgToDecipher.value = "";
+  if (decipherMsg !== -1) {
+    msgToEncrypt.value = decipherMsg;
+    msgToDecipher.value = "";
+  }
 });
 
 inputKey.addEventListener("change", (e) => {
+  cipherAlgorithm.setKey(inputKey.value);
+
   if (e.target.value === "") {
     inputKey.classList.add("errorInput");
     handleErrorMsg("==== Clé de chiffrement absente ====", settingsCtn);
   } else {
     inputKey.classList.remove("errorInput");
-    document.querySelector(".errorMsg").remove();
+    if (document.querySelector(".errorMsg")) {
+      document.querySelector(".errorMsg").remove();
+    }
   }
 });
+
+inputAlphabet.addEventListener("change", (e) => {});
