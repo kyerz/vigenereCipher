@@ -24,27 +24,29 @@
         <p>
           Cette méthode résiste ainsi à l'analyse de fréquences, ce qui est un
           avantage décisif sur les chiffrements mono alphabétiques. Cependant le
-          chiffre de Vigenère a été découvert par le major prussien Friedrich
+          chiffre de Vigenère a été percé par le major prussien Friedrich
           Kasiski qui publie sa méthode en 1863.
         </p>
       </div>
 
       <form>
-        <label for="alpha">Alphabet</label>
-        <input
-          type="text"
-          name="alphabet"
-          id="alphabet"
-          placeholder="alphabet"
-        />
+        <div class="settings-ctn">
+          <label for="alpha">Alphabet</label>
+          <input
+            type="text"
+            name="alphabet"
+            id="alphabet"
+            placeholder="alphabet"
+          />
 
-        <label for="encryptKey">Clé de chiffrement</label>
-        <input
-          id="encryptKey"
-          name="encryptKey"
-          type="text"
-          placeholder="Entrer la clé de chiffrement"
-        />
+          <label for="encryptKey">Clé de chiffrement</label>
+          <input
+            id="encryptKey"
+            name="encryptKey"
+            type="text"
+            placeholder="Entrer une clé de chiffrement"
+          />
+        </div>
         <div class="msg-ctn">
           <label for="message">Message clair à chiffrer</label>
           <textarea

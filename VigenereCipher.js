@@ -16,6 +16,8 @@ class VigenereCipher {
   };
 
   encode = function (str) {
+    //corner case
+    if (this.key === "") return -1;
     let cypher = "";
     let targetIndex = 0;
     for (let i = 0; i < str.length; i++) {
@@ -44,6 +46,8 @@ class VigenereCipher {
   };
 
   decode = function (str) {
+    //corner case
+    if (this.key === "") return -1;
     let decypher = "";
     let keyIndex = 0;
     let matchIndex = 0;

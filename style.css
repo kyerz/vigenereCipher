@@ -20,9 +20,12 @@ h1 {
   margin: 20px;
 }
 
-.msg-ctn {
+.msg-ctn, .settings-ctn {
   display: flex;
   flex-direction: column;
+}
+
+.msg-ctn {
   margin-top: 50px;
 }
 
@@ -47,10 +50,22 @@ label {
 #clearMsg, #encryptMsg {
   resize: none;
   font-size: 1.2rem;
+  padding: 10px;
 }
 
 .cipherBtn, .decipherBtn {
   padding: 5px 10px;
   margin: 10px 0;
   text-transform: uppercase;
+}
+
+.errorMsg {
+  margin-top: 10px;
+  text-align: center;
+  color: #ff6464;
+}
+
+
+.errorInput {
+  background: #ff8484;
 }
