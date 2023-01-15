@@ -9,6 +9,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   color: rgb(231, 231, 231);
+  font-family: 'Lato', Verdana, sans-serif;
 }
 
 h1 {
