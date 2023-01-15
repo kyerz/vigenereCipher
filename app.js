@@ -1,16 +1,21 @@
 import { dictionary, key } from "./mock.js";
+import VigenereCipher from "./VigenereCipher.js";
 
 const inputAlphabet = document.querySelector("#alphabet");
-inputAlphabet.value = dictionary;
-
 const inputKey = document.querySelector("#encryptKey");
-inputKey.value = key;
-
 const msgToEncrypt = document.querySelector("#clearMsg");
+const msgToDecipher = document.querySelector("#encryptMsg");
+const cipherBtn = document.querySelector(".cipherBtn");
 
-const cipherBtn = document.querySelector(".cipher");
+inputAlphabet.value = dictionary;
+inputKey.value = key;
 
 cipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("chiffrement en cours...", msgToEncrypt.value);
+  const encryptionAlgorithm = new VigenereCipher(
+    inputKey.value,
+    inputAlphabet.value
+  );
+  const encryptedMsg = encryptionAlgorithm.encode(msgToEncrypt.value);
+  msgToDecipher.value = encryptedMsg;
 });

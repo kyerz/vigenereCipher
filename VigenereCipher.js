@@ -57,3 +57,5 @@ class VigenereCipher {
     return decypher;
   };
 }
+
+export default VigenereCipher;
