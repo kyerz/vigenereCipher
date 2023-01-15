@@ -33,16 +33,25 @@ decipherBtn.addEventListener("click", (e) => {
 });
 
 inputKey.addEventListener("change", (e) => {
-  cipherAlgorithm.setKey(inputKey.value);
+  if (document.querySelector(".errorMsg")) {
+    document.querySelector(".errorMsg").remove();
+  }
+
+  const pattern = /^[A-Za-z]+$/;
+  if (e.target.value === "" || !pattern.test(inputKey.value)) {
+    inputKey.classList.add("errorInput");
+  }
 
   if (e.target.value === "") {
-    inputKey.classList.add("errorInput");
     handleErrorMsg("==== Clé de chiffrement absente ====", settingsCtn);
+  } else if (pattern.test(inputKey.value) === false) {
+    handleErrorMsg(
+      "==== Seules, les lettres sont autorisées ====",
+      settingsCtn
+    );
   } else {
+    cipherAlgorithm.setKey(inputKey.value);
     inputKey.classList.remove("errorInput");
-    if (document.querySelector(".errorMsg")) {
-      document.querySelector(".errorMsg").remove();
-    }
   }
 });
 
