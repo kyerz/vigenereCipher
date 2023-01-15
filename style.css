@@ -50,6 +50,7 @@ label {
   padding: 15px 10px;
   margin: 10px 0;
   text-transform: uppercase;
+  border: none;
 }
 .cipherBtn:hover, .decipherBtn:hover {
   cursor: pointer;
