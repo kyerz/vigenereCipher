@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chiffrement de vigenère</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Chiffre de Vigenère</h1>
+
+      <div class="history">
+        <p>
+          Le chiffre de Vigenère est un système de chiffrement par substitution
+          polyalphabétique dans lequel une même lettre du message clair peut,
+          suivant sa position dans celui-ci, être remplacée par des lettres
+          différentes, contrairement à un système de chiffrement mono
+          alphabétique comme le chiffre de César (qu'il utilise cependant comme
+          composant).
+        </p>
+
+        <p>
+          Cette méthode résiste ainsi à l'analyse de fréquences, ce qui est un
+          avantage décisif sur les chiffrements mono alphabétiques. Cependant le
+          chiffre de Vigenère a été découvert par le major prussien Friedrich
+          Kasiski qui publie sa méthode en 1863.
+        </p>
+      </div>
+
+      <form>
+        <label for="alpha">Alphabet</label>
+        <input
+          type="text"
+          name="alphabet"
+          id="alphabet"
+          placeholder="alphabet"
+        />
+
+        <label for="encryptKey">Clé de chiffrement</label>
+        <input
+          id="encryptKey"
+          name="encryptKey"
+          type="text"
+          placeholder="Entrer la clé de chiffrement"
+        />
+
+        <label for="message">Texte à chiffrer</label>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Entrer le message à chiffrer"
+        ></textarea>
+
+        <div>
+          <button class="cipher">Chiffrer</button>
+          <button class="decipher">Déchiffrer</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(37, 37, 37);
+  max-width: 600px;
+  margin: 0 auto;
+  color: rgb(231, 231, 231);
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+.history p {
+  margin: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  text-align: center;
+  padding: 10px;
+}
+
+#encryptKey , #alphabet, #message{
+  padding: 10px;
+  font-size: 1.2rem;
+  
+}
+
+.cipher, .decipher {
+  padding: 5px 10px;
+  margin: 10px;
+}
