@@ -6,16 +6,22 @@ const inputKey = document.querySelector("#encryptKey");
 const msgToEncrypt = document.querySelector("#clearMsg");
 const msgToDecipher = document.querySelector("#encryptMsg");
 const cipherBtn = document.querySelector(".cipherBtn");
+const decipherBtn = document.querySelector(".decipherBtn");
 
 inputAlphabet.value = dictionary;
 inputKey.value = key;
+const cipherAlgorithm = new VigenereCipher(inputKey.value, inputAlphabet.value);
 
 cipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const encryptionAlgorithm = new VigenereCipher(
-    inputKey.value,
-    inputAlphabet.value
-  );
-  const encryptedMsg = encryptionAlgorithm.encode(msgToEncrypt.value);
+  const encryptedMsg = cipherAlgorithm.encode(msgToEncrypt.value);
   msgToDecipher.value = encryptedMsg;
+  msgToEncrypt.value = "";
+});
+
+decipherBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const decipherMsg = cipherAlgorithm.decode(msgToDecipher.value);
+  msgToEncrypt.value = decipherMsg;
+  msgToDecipher.value = "";
 });
