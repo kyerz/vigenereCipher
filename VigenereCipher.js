@@ -6,6 +6,15 @@ class VigenereCipher {
     this.key = key;
     this.abc = abc;
   }
+
+  setKey = function (key) {
+    this.key = key;
+  };
+
+  setDictionary = function (abc) {
+    this.abc = abc;
+  };
+
   encode = function (str) {
     let cypher = "";
     let targetIndex = 0;

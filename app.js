@@ -14,6 +14,7 @@ const cipherAlgorithm = new VigenereCipher(inputKey.value, inputAlphabet.value);
 
 cipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  cipherAlgorithm.setKey(inputKey.value);
   const encryptedMsg = cipherAlgorithm.encode(msgToEncrypt.value);
   msgToDecipher.value = encryptedMsg;
   msgToEncrypt.value = "";
@@ -21,6 +22,7 @@ cipherBtn.addEventListener("click", (e) => {
 
 decipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  cipherAlgorithm.setKey(inputKey.value);
   const decipherMsg = cipherAlgorithm.decode(msgToDecipher.value);
   msgToEncrypt.value = decipherMsg;
   msgToDecipher.value = "";
