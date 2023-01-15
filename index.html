@@ -45,19 +45,26 @@
           type="text"
           placeholder="Entrer la clé de chiffrement"
         />
+        <div class="msg-ctn">
+          <label for="message">Message clair à chiffrer</label>
+          <textarea
+            name="message"
+            id="clearMsg"
+            cols="30"
+            rows="10"
+            placeholder="Entrer le message à chiffrer"
+          ></textarea>
+          <button class="cipherBtn">Chiffrer</button>
 
-        <label for="message">Texte à chiffrer</label>
-        <textarea
-          name="message"
-          id="message"
-          cols="30"
-          rows="10"
-          placeholder="Entrer le message à chiffrer"
-        ></textarea>
-
-        <div>
-          <button class="cipher">Chiffrer</button>
-          <button class="decipher">Déchiffrer</button>
+          <label for="message">Message chiffré par Vigenère</label>
+          <textarea
+            name="message"
+            id="encryptMsg"
+            cols="30"
+            rows="10"
+            placeholder="Entrer le message à chiffrer"
+          ></textarea>
+          <button class="decipherBtn">Déchiffrer</button>
         </div>
       </form>
     </div>
