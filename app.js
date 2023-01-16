@@ -57,6 +57,7 @@ inputKey.addEventListener("change", (e) => {
     inputKey.classList.remove("errorInput");
     cipherBtn.disabled = false;
     decipherBtn.disabled = false;
+    handleErrorMsg();
   }
 });
 
