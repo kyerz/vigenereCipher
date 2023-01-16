@@ -1,6 +1,3 @@
-const abc = "abcdefghijklmnopqrstuvwxyz";
-const key = "password";
-
 class VigenereCipher {
   constructor(key, abc) {
     this.key = key;
