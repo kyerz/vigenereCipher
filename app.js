@@ -14,7 +14,11 @@ let cipherKey = formatKey(key);
 inputAlphabet.value = dictionary;
 inputAlphabet.disabled = true;
 inputKey.value = cipherKey;
-const cipherAlgorithm = new VigenereCipher(inputKey.value, inputAlphabet.value);
+const cipherAlgorithm = new VigenereCipher(
+  inputKey.value,
+  inputAlphabet.value,
+  "$"
+);
 
 cipherBtn.addEventListener("click", (e) => {
   e.preventDefault();

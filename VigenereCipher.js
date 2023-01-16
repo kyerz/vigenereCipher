@@ -1,7 +1,8 @@
 class VigenereCipher {
-  constructor(key, abc) {
+  constructor(key, abc, blankChar) {
     this.key = key;
     this.abc = abc;
+    this.blankChar = blankChar;
   }
 
   setKey = function (key) {
@@ -19,6 +20,12 @@ class VigenereCipher {
     let targetIndex = 0;
     for (let i = 0; i < str.length; i++) {
       targetIndex === this.key.length ? (targetIndex = 0) : null;
+      //test for remove blank
+      if (str[i] === " ") {
+        cypher += this.blankChar;
+        targetIndex++;
+        continue;
+      }
       if (this.abc.indexOf(str[i]) === -1) {
         cypher += str[i];
         targetIndex++;
@@ -50,6 +57,12 @@ class VigenereCipher {
     let matchIndex = 0;
     for (let i = 0; i < str.length; i++) {
       keyIndex > this.key.length - 1 ? (keyIndex = 0) : null;
+      if (str[i] === this.blankChar) {
+        decypher += " ";
+        keyIndex++;
+        continue;
+      }
+
       if (this.abc.indexOf(str[i]) === -1) {
         decypher += str[i];
         keyIndex++;
