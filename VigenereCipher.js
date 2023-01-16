@@ -20,7 +20,6 @@ class VigenereCipher {
     let targetIndex = 0;
     for (let i = 0; i < str.length; i++) {
       targetIndex === this.key.length ? (targetIndex = 0) : null;
-      //test for remove blank
       if (str[i] === " ") {
         cypher += this.blankChar;
         targetIndex++;

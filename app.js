@@ -41,6 +41,8 @@ inputKey.addEventListener("change", (e) => {
   const pattern = /^[A-Za-z]+$/;
   if (e.target.value === "" || !pattern.test(cipherKey)) {
     inputKey.classList.add("errorInput");
+    cipherBtn.disabled = true;
+    decipherBtn.disabled = true;
   }
 
   if (e.target.value === "") {
@@ -53,6 +55,8 @@ inputKey.addEventListener("change", (e) => {
   } else {
     cipherAlgorithm.setKey(cipherKey);
     inputKey.classList.remove("errorInput");
+    cipherBtn.disabled = false;
+    decipherBtn.disabled = false;
   }
 });
 
