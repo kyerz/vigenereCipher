@@ -1,5 +1,5 @@
 import { dictionary, key } from "./mock.js";
-import { handleErrorMsg, formatKey } from "./utils.js";
+import { handleErrorMsg, formatKey, updateInput } from "./utils.js";
 import VigenereCipher from "./VigenereCipher.js";
 
 const settingsCtn = document.querySelector(".settings-ctn");
@@ -24,8 +24,7 @@ cipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const encryptedMsg = cipherAlgorithm.encode(msgToEncrypt.value);
   if (encryptedMsg !== -1) {
-    msgToDecipher.value = encryptedMsg;
-    msgToEncrypt.value = "";
+    updateInput(encryptedMsg, msgToDecipher, msgToEncrypt);
   }
 });
 
@@ -33,18 +32,12 @@ decipherBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const decipherMsg = cipherAlgorithm.decode(msgToDecipher.value);
   if (decipherMsg !== -1) {
-    msgToEncrypt.value = decipherMsg;
-    msgToDecipher.value = "";
+    updateInput(decipherMsg, msgToEncrypt, msgToDecipher);
   }
 });
 
 inputKey.addEventListener("change", (e) => {
-  if (document.querySelector(".errorMsg")) {
-    document.querySelector(".errorMsg").remove();
-  }
-
   cipherKey = formatKey(inputKey.value);
-  console.log(cipherKey, inputKey.value);
   const pattern = /^[A-Za-z]+$/;
   if (e.target.value === "" || !pattern.test(cipherKey)) {
     inputKey.classList.add("errorInput");
