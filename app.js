@@ -47,7 +47,7 @@ inputKey.addEventListener("change", (e) => {
     handleErrorMsg("==== Clé de chiffrement absente ====", settingsCtn);
   } else if (pattern.test(inputKey.value) === false) {
     handleErrorMsg(
-      "==== Seules, les lettres sont autorisées ====",
+      "==== Seules les lettres sans accents sont autorisées ====",
       settingsCtn
     );
   } else {
