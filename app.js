@@ -1,5 +1,5 @@
 import { dictionary, key } from "./mock.js";
-import { handleErrorMsg } from "./utils.js";
+import { handleErrorMsg, formatKey } from "./utils.js";
 import VigenereCipher from "./VigenereCipher.js";
 
 const settingsCtn = document.querySelector(".settings-ctn");
@@ -9,10 +9,11 @@ const msgToEncrypt = document.querySelector("#clearMsg");
 const msgToDecipher = document.querySelector("#encryptMsg");
 const cipherBtn = document.querySelector(".cipherBtn");
 const decipherBtn = document.querySelector(".decipherBtn");
+let cipherKey = formatKey(key);
 
 inputAlphabet.value = dictionary;
 inputAlphabet.disabled = true;
-inputKey.value = key;
+inputKey.value = cipherKey;
 const cipherAlgorithm = new VigenereCipher(inputKey.value, inputAlphabet.value);
 
 cipherBtn.addEventListener("click", (e) => {
@@ -38,20 +39,22 @@ inputKey.addEventListener("change", (e) => {
     document.querySelector(".errorMsg").remove();
   }
 
+  cipherKey = formatKey(inputKey.value);
+  console.log(cipherKey, inputKey.value);
   const pattern = /^[A-Za-z]+$/;
-  if (e.target.value === "" || !pattern.test(inputKey.value)) {
+  if (e.target.value === "" || !pattern.test(cipherKey)) {
     inputKey.classList.add("errorInput");
   }
 
   if (e.target.value === "") {
     handleErrorMsg("==== Clé de chiffrement absente ====", settingsCtn);
-  } else if (pattern.test(inputKey.value) === false) {
+  } else if (pattern.test(cipherKey) === false) {
     handleErrorMsg(
       "==== Seules les lettres sans accents sont autorisées ====",
       settingsCtn
     );
   } else {
-    cipherAlgorithm.setKey(inputKey.value);
+    cipherAlgorithm.setKey(cipherKey);
     inputKey.classList.remove("errorInput");
   }
 });

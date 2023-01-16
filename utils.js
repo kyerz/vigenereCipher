@@ -9,3 +9,5 @@ export const handleErrorMsg = (msg, targetTag) => {
     targetTag.append(p);
   }
 };
+
+export const formatKey = (key) => key.trim().split(" ").join("").toLowerCase();
